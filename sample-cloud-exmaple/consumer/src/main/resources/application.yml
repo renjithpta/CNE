@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: ex.stream.out
+          group: usertopic
+          binder: rabbit1
+          content-type: application/json
+    
+      binders:
+        rabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 127.0.0.1
+                port: 5672
+                username: guest
+                password: guest              
+                
+server:  
+  port: 0
